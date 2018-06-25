@@ -31,7 +31,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <excludes>
-                    <exclude>generator.xml</exclude>
+                    <!-- <exclude>generator.xml</exclude> -->
                     <exclude>*.bat</exclude>
                     <exclude>*.sh</exclude>
                 </excludes>
