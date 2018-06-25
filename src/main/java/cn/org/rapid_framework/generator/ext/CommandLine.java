@@ -15,6 +15,11 @@ import java.util.Scanner;
  */
 public class CommandLine {
 	
+	/**
+	 * 代码生成入口
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		//disable freemarker logging
 		freemarker.log.Logger.selectLoggerLibrary(freemarker.log.Logger.LIBRARY_NONE);
