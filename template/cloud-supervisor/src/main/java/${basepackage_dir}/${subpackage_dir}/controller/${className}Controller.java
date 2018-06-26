@@ -9,9 +9,8 @@ import java.util.*;
 import com.wishstack.supervisor.bean.ApiResponse;
 import com.wishstack.supervisor.bean.PageResponse;
 import com.wishstack.supervisor.controller.UserController;
-import com.wishstack.supervisor.entity.UserEntity;
 
-import ${basepackage}.${subpackage}.model.${className}Entity;
+import ${basepackage}.${subpackage}.entity.${className}Entity;
 import ${basepackage}.${subpackage}.service.${className}Service;
 
 import io.swagger.annotations.Api;

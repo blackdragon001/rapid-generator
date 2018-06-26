@@ -5,6 +5,8 @@
 package ${basepackage}.${subpackage}.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -14,6 +16,8 @@ import lombok.Data;
  */
 @Data
 public class ${className}Entity implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	<#list table.columns as column>
 	// ${column.columnAlias}
