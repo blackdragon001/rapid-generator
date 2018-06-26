@@ -12,7 +12,7 @@
 		<#list table.columns as column>${column.sqlName}<#if column_has_next>,</#if></#list>
 	</sql>
 	
-	<select id="getById" parameterType="string" resultType="${className}Entity">
+	<select id="getById" parameterType="String" resultType="${className}Entity">
 		select
 			<include refid="Base_Column_List" />
 		from
@@ -25,11 +25,6 @@
 		select count(*)
 		from ${table.sqlName}
 		where 1=1
-		<#list table.columns as column>
-		  <if test="_bean != null and _bean.${column.columnNameFirstLower} != null">
-			and ${column.sqlName} = ${r'#{ _bean.'}${column.columnNameFirstLower}, jdbcType=${column.jdbcSqlTypeName} ${r'}'}
-		  </if>
-		</#list>
 	</select>
 	
 	<select id="listPage" resultType="${className}Entity">
@@ -37,20 +32,12 @@
 			<include refid="Base_Column_List" />
 		from ${table.sqlName}
 		where 1=1
-		<#list table.columns as column>
-			<if test="_bean != null and _bean.${column.columnNameFirstLower} != null">
-			  and ${column.sqlName} = ${r'#{'} _bean.${column.columnNameFirstLower}, jdbcType=${column.jdbcSqlTypeName} ${r'}'}
-			</if>
-		</#list>
-		<if test="_orderby != null">
-			order by ${r'${_orderby} ${_orderdir}'}
-		</if>
 		<if test="_start != null and _pageSize != null">
 			limit ${r'${_start}, ${_pageSize}'}
 		</if>
 	</select>
 	
-	<update id="update" parameterType="${basepackage}.${subpackage}.model.${className}">
+	<update id="update" parameterType="${basepackage}.${subpackage}.entity.${className}Entity">
 		update ${table.sqlName}
 		<set>
 			<#list table.notPkColumns as column>
@@ -63,7 +50,7 @@
 			id = <@mapperEl "id"/>
 	</update>
 	
-	<delete id="deleteById" parameterType="string">
+	<delete id="deleteById" parameterType="String">
 		delete from ${table.sqlName} 
 		where
 			id = <@mapperEl "id"/>
