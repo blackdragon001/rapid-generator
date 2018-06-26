@@ -31,7 +31,7 @@ public interface ${className}Mapper {
     int countBy(Map<String, Object> params);
 
     /**
-     * 分页查询
+     * 列表查询
      * @param page
      * @param pageSize
      * @return
