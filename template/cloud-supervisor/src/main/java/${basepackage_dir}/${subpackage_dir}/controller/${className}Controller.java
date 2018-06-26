@@ -43,7 +43,7 @@ public class ${className}Controller {
     private ${className}Service ${classNameLower}Service;
 
     /**
-     * 获取分裂列表数据
+     * 获分页列表数据
      * @param page
      * @param pageSize
      * @return

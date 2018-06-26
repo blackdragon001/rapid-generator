@@ -21,7 +21,7 @@ import com.wishstack.supervisor.bean.PageResponse;
 
 import ${basepackage}.util.common.StringNumberUtil;
 import ${basepackage}.${subpackage}.service.${className}Service;
-import ${basepackage}.${subpackage}.model.${className};
+import ${basepackage}.${subpackage}.model.${className}Entity;
 import ${basepackage}.${subpackage}.dao.mysql.${className}Mapper;
 
 /**
