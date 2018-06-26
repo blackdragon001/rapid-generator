@@ -4,8 +4,6 @@
 <#assign shortName = table.shortName>
 package ${basepackage}.${subpackage}.controller;
 
-import java.util.*;
-
 import com.wishstack.supervisor.bean.ApiResponse;
 import com.wishstack.supervisor.bean.PageResponse;
 import com.wishstack.supervisor.controller.UserController;
