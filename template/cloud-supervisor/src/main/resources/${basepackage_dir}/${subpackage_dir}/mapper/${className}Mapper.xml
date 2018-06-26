@@ -27,14 +27,11 @@
 		where 1=1
 	</select>
 	
-	<select id="listPage" resultType="${className}Entity">
+	<select id="list" resultType="${className}Entity">
 		select
 			<include refid="Base_Column_List" />
 		from ${table.sqlName}
 		where 1=1
-		<if test="_start != null and _pageSize != null">
-			limit ${r'${_start}, ${_pageSize}'}
-		</if>
 	</select>
 	
 	<update id="update" parameterType="${basepackage}.${subpackage}.entity.${className}Entity">

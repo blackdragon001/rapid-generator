@@ -36,7 +36,7 @@ public interface ${className}Mapper {
      * @param pageSize
      * @return
      */
-    Page<${className}Entity> listPage(@Param("page")Integer page, @Param("pageSize")Integer pageSize);
+    Page<${className}Entity> list();
 
     /**
      * 插入记录

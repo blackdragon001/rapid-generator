@@ -108,8 +108,8 @@ public class ${className}Service {
 	public PageResponse<List<${className}Entity>> listPage(Integer page, Integer pageSize){
         PageHelper.startPage(page, pageSize);
         
-        Page<${className}Entity> listPage = ${classNameLower}Mapper.listPage(page, pageSize);
+        Page<${className}Entity> list = ${classNameLower}Mapper.list();
 		
-        return new PageResponse<>(listPage.getTotal(), page, pageSize, listPage.getResult());
+        return new PageResponse<>(list.getTotal(), page, pageSize, list.getResult());
 	}
 }
