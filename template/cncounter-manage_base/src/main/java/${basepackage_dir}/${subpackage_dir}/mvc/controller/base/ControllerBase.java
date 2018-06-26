@@ -144,7 +144,7 @@ public abstract class ControllerBase {
 		return redisBaseDAO.getObject(name);
 	}
 	/**
-	 * 获取 上下文 path, 返回如 "/cncounter"
+	 * 获取 上下文 path, 返回如 "/cetc-cloud"
 	 * @param request
 	 * @return
 	 */
