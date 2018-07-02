@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * <一句话功能简述>
- * @author TODO
+ * @author ${author_dir}
  */
 @Slf4j
 @Service
@@ -105,7 +105,7 @@ public class ${className}Service {
 	 * @param pageSize
 	 * @return
 	 */
-	public PageResponse<List<${className}Entity>> listPage(Integer page, Integer pageSize){
+	public PageResponse<${className}Entity> listPage(Integer page, Integer pageSize){
         PageHelper.startPage(page, pageSize);
         
         Page<${className}Entity> list = ${classNameLower}Mapper.list();
