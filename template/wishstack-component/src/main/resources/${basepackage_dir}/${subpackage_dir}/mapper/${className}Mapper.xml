@@ -1,0 +1,92 @@
+<#include "/macro.include"/>
+<#assign className = table.className>
+<#assign tableSqlName = table.sqlName>
+<#assign classNameLower = className?uncap_first>
+<#assign classNameFirstLower = table.classNameFirstLower>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<#macro mapperEl value>${r"#{"}${value}}</#macro>
+<mapper namespace="${basepackage}.${subpackage}.mapper.${className}Mapper">
+
+    <sql id="QUERY_COLUMN_LIST">
+        <#list table.columns as column>${column.sqlName}<#if column_has_next>,</#if></#list>
+    </sql>
+
+    <sql id="QUERY_FROM_TABLE">
+        <![CDATA[FROM ${tableSqlName}]]>
+    </sql>
+    
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="${classNameLower}">
+        INSERT INTO ${tableSqlName}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <#list table.columns as column>
+            <if test="${column.columnNameFirstLower} != null">${column.sqlName},</if>
+        </#list>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <#list table.columns as column>
+            <if test="${column.columnNameFirstLower} != null">${r'#{'}${column.columnNameFirstLower}, jdbcType=${column.jdbcSqlTypeName}${r'},'}</if>
+        </#list>
+        </trim>
+    </insert>
+    
+    <!-- 逻辑删除多个 -->
+    <update id="logicDeleteBatch" parameterType="${classNameLower}">
+        <![CDATA[
+            UPDATE ${tableSqlName}
+            SET is_del = 1,
+                delete_user = <@mapperEl "deleteUser"/>,
+                delete_date = NOW()
+            WHERE id in
+        ]]>
+        <foreach collection="deleteIds" item="deleteId" open="(" separator="," close=")"><@mapperEl "deleteId"/></foreach>
+    </update>
+
+    <!-- 物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="string">
+    <![CDATA[DELETE]]>
+        <include refid="QUERY_FROM_TABLE" />
+    <![CDATA[WHERE id = <@mapperEl "id"/>]]>
+    </delete>
+    
+    <sql id="UPDATE_COLUMN_SET">
+        <set>
+    		<trim suffixOverrides=",">
+            <#list table.notPkColumns as column>
+            <if test="${column.columnNameFirstLower} != null">${column.sqlName} = ${r'#{'}${column.columnNameFirstLower}, jdbcType=${column.jdbcSqlTypeName} ${r'}'},</if>
+            </#list>
+            </trim>
+        </set>
+    </sql>
+    
+    <!-- 通过主键修改记录 -->
+    <update id="update" parameterType="${classNameLower}">
+        <![CDATA[update ${tableSqlName}]]>
+        <include refid="UPDATE_COLUMN_SET"/>
+        <![CDATA[where id = <@mapperEl "id"/>]]>
+    </update>
+
+    <!-- 查询,通过条件,通用分页也是用的该方法 -->
+    <select id="selectAll" parameterType="${classNameLower}" resultType="${classNameLower}">
+        <![CDATA[SELECT]]>
+        <include refid="QUERY_COLUMN_LIST"/>
+        <include refid="QUERY_FROM_TABLE"/>
+    </select>
+
+    <!-- 查询,通过主键查询实体 -->
+    <select id="selectByPrimaryKey" parameterType="String" resultType="${classNameLower}">
+        <![CDATA[SELECT]]>
+        <include refid="QUERY_COLUMN_LIST"/>
+        <include refid="QUERY_FROM_TABLE"/>
+        <![CDATA[WHERE id = <@mapperEl "id"/>]]>
+    </select>
+
+    <!-- 使用pagehelper查询,通过条件 -->
+    <select id="selectByPagehelper" parameterType="${classNameLower}" resultType="${classNameLower}">
+        <![CDATA[SELECT]]>
+        <include refid="QUERY_COLUMN_LIST"/>
+        <include refid="QUERY_FROM_TABLE"/>
+    </select>
+    
+</mapper>

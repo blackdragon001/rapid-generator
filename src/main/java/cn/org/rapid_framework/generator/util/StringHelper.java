@@ -49,6 +49,7 @@ public class StringHelper {
 	public static String removePrefix(String str,String prefix,boolean ignoreCase) {
 		if(str == null) return null;
 		if(prefix == null) return str;
+		prefix = prefix.trim();
 		if(ignoreCase) {
 			if(str.toLowerCase().startsWith(prefix.toLowerCase())) {
 				return str.substring(prefix.length());

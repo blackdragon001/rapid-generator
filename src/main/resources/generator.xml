@@ -10,7 +10,7 @@
 	<entry key="basepackage">com.wishstack</entry>
 
 	<!-- 子包,只支持单个词 -->
-	<entry key="subpackage">supervisor</entry>
+	<entry key="subpackage">maintain</entry>
 	
 	<!-- jsp namespace: web/${namespace}/${className}/list.jsp -->
 	<entry key="namespace">pages</entry>
@@ -19,7 +19,13 @@
 	<entry key="outRoot">generated-sources</entry>
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
-	<entry key="tableRemovePrefixes">T_AR,T_BD,T_CD,T_PD,T_CL,T_IP,T_LO,T_RI,T_EV</entry>
+	<entry key="tableRemovePrefixes">
+	T00_,T01_,T02_,T03_,T04_,T05_,T06_,T07_,T08_,T09_,T10_,T11_,T12_,T13_,T14_,T15_,T16_,T17_,T18_,T19_,
+	T20_,T21_,T22_,T23_,T24_,T25_,T26_,T27_,T28_,T29_,T30_,T31_,T32_,T33_,T34_,T35_,T36_,T37_,T38_,T39_,
+	T40_,T41_,T42_,T43_,T44_,T45_,T46_,T47_,T48_,T49_,T50_,T51_,T52_,T53_,T54_,T55_,T56_,T57_,T58_,T59_,
+	T60_,T61_,T62_,T63_,T64_,T65_,T66_,T67_,T68_,T69_,T70_,T71_,T72_,T73_,T74_,T75_,T76_,T77_,T78_,T79_,
+	T80_,T81_,T82_,T83_,T84_,T85_,T86_,T87_,T88_,T89_,T90_,T91_,T92_,T93_,T94_,T95_,T96_,T97_,T98_,T99_
+	</entry>
 
 	<!-- 需要移除的列名前缀,逗号分隔,示例: S_,I_ -->
 	<entry key="rowRemovePrefixes">S_,B_,I_,DT_,TS_,M_,F_,PK_I_N,PK_I_S</entry>
@@ -43,7 +49,7 @@
 
 		
 	<!-- Mysql连接,useInformationSchema 取出表名注释 -->
-	<entry key="jdbc.url">jdbc:mysql://192.168.104.91:3306/wishstack_v2_utf8?useUnicode=true&amp;characterEncoding=utf8&amp;useInformationSchema=true</entry>
+	<entry key="jdbc.url">jdbc:mysql://192.168.130.119:3306/wishstack_v31_utf8?useUnicode=true&amp;characterEncoding=utf8&amp;useInformationSchema=true</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 	<entry key="jdbc.username">root</entry>
 	<entry key="jdbc.password">123456</entry>
