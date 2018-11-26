@@ -11,7 +11,6 @@ import java.util.UUID;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +34,6 @@ import io.swagger.annotations.ApiParam;
  * @author ${author_dir}
  * ${remarks}
  */
-@CrossOrigin(allowCredentials="true", allowedHeaders="*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, origins="*")
 @RestController
 @RequestMapping("/${subpackage}/${classNameLower}")
 @Api(value = "${classNameLower}API", tags = {"模块功能简述"})
