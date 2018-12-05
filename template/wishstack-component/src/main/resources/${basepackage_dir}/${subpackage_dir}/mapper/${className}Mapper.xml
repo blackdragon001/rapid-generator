@@ -93,10 +93,13 @@
     <sql id="QUERY_WHERE_CLAUSE">
         <where>
         <#list table.columns as column>
+	        <#if column != 'is_del'>
+            <if test="${column.columnNameFirstLower} != null and ${column.columnNameFirstLower} != ''"><![CDATA[AND ${column.sqlName} = ${r'#{'}${column.columnNameFirstLower}${r'}'}]]></if>
+	        </#if>
+        </#list>
+        <#list table.columns as column>
 	        <#if column == 'is_del'>
 	        <![CDATA[AND is_del = 0]]>
-	        <#else>
-            <if test="${column.columnNameFirstLower} != null and ${column.columnNameFirstLower} != ''"><![CDATA[AND ${column.sqlName} = ${r'#{'}${column.columnNameFirstLower}${r'}'}]]></if>
 	        </#if>
         </#list>
         </where>
