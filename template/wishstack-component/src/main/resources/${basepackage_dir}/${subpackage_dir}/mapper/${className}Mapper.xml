@@ -87,6 +87,19 @@
         <![CDATA[SELECT]]>
         <include refid="QUERY_COLUMN_LIST"/>
         <include refid="QUERY_FROM_TABLE"/>
+        <include refid="QUERY_WHERE_CLAUSE"/>
     </select>
+    
+    <sql id="QUERY_WHERE_CLAUSE">
+        <where>
+        <#list table.columns as column>
+	        <#if column == 'is_del'>
+	        <![CDATA[AND is_del = 0]]>
+	        <#else>
+            <if test="${column.columnNameFirstLower} != null and ${column.columnNameFirstLower} != ''"><![CDATA[AND ${column.sqlName} = ${r'#{'}${column.columnNameFirstLower}${r'}'}]]></if>
+	        </#if>
+        </#list>
+        </where>
+    </sql>
     
 </mapper>
