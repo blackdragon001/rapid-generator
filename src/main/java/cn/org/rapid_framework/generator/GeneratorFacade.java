@@ -80,7 +80,7 @@ public class GeneratorFacade {
 	}
 	
     private Generator getGenerator(String templateRootDir) {
-        g.setTemplateRootDir(new File(templateRootDir).getAbsoluteFile());
+        g.setTemplateRootDir(new File("rapid-generator/" + templateRootDir).getAbsoluteFile());
         return g;
     }
     
