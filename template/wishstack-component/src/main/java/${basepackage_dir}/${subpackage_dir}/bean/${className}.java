@@ -1,11 +1,25 @@
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
-<#include"/macro.include"/>
-<#include"/java_copyright.include">
-<#assign className=table.className>
-<#assign classNameLower=className?uncap_first>
-<#assign ignoreFieldArr=[
+
+<
+#include"/macro.include"/>
+
+
+<
+#include"/java_copyright.include">
+
+
+<
+#assign className=table.className>
+
+
+<
+#assign classNameLower=className?uncap_first>
+
+
+<
+#assign ignoreFieldArr=[
         'id','create_user','create_date','modify_user','modify_date','is_del',
         'delete_user','delete_date'
         ]>

@@ -2,12 +2,33 @@ import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-<#include"/java_copyright.include">
-<#assign className=table.className>
-<#assign remarks=table.remarks>
-<#assign classNameLower=className?uncap_first>
-<#assign shortName=table.shortName>
-<#macro mapperEl value>${r"#{"}${value}}</#macro>
+
+<
+#include"/java_copyright.include">
+
+
+<
+#assign className=table.className>
+
+
+<
+#assign remarks=table.remarks>
+
+
+<
+#assign classNameLower=className?uncap_first>
+
+
+<
+#assign shortName=table.shortName>
+
+
+<
+#macro mapperEl value>${r"#{"}${value}}
+
+
+<
+/#macro>
         package ${basepackage}.${subpackage}.controller;
         {basepackage}.${subpackage}.bean.${className};
         {basepackage}.${subpackage}.service.${className}Service;

@@ -1,10 +1,21 @@
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-<#include"/java_copyright.include">
-<#assign className=table.className>
-<#assign classNameLower=className?uncap_first>
-<#assign shortName=table.shortName>
+
+<
+#include"/java_copyright.include">
+
+
+<
+#assign className=table.className>
+
+
+<
+#assign classNameLower=className?uncap_first>
+
+
+<
+#assign shortName=table.shortName>
         package ${basepackage}.${subpackage}.service.impl;
         {basepackage}.${subpackage}.bean.${className};
         {basepackage}.${subpackage}.mapper.${className}Mapper;
