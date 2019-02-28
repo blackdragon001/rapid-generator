@@ -1,17 +1,11 @@
-<#include "/macro.include"/>
-<#include "/java_copyright.include">
-<#assign className = table.className>   
-<#assign classNameLower = className?uncap_first>
-<#assign shortName = table.shortName>
-package ${basepackage}.${subpackage}.mapper;
+<#include"/macro.include"/>
+<#include"/java_copyright.include">
+<#assign className=table.className>
+<#assign classNameLower=className?uncap_first>
+<#assign shortName=table.shortName>
+        package ${basepackage}.${subpackage}.mapper;{basepackage}.${subpackage}.bean.${className};
 
-import com.wishstack.common.mapper.BaseMapper;
-import ${basepackage}.${subpackage}.bean.${className};
-
-/**
- * <一句话功能简述>
- * @author ${author_dir}
- */
+<#include "/java_class_comment.include">
 public interface ${className}Mapper extends BaseMapper<${className}> {
     
 }
